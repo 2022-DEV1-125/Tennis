@@ -5,14 +5,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @Schema(name="GameRequest", description="Parameters to get score of the players")
 public class GameRequest {
 	
-	private String point1;
-	private String point2;
-	private String point3;
-	private String point4;
-	private String point5;
-	private String point6;
-	private String advantagePoint;
-	private String gamePoint;
+	public String point1;
+	public String point2;
+	public String point3;
+	public String point4;
+	public String point5;
+	public String point6;
+	public String advantagePoint;
+	public String gamePoint;
 	public String getPoint1() {
 		return point1;
 	}
