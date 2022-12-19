@@ -3,13 +3,53 @@
  */
 package Kata_Tennis;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import Kata_Tennis.model.GameRequest;
+import Kata_Tennis.model.GameResponse;
+import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
+import io.restassured.response.Response;
+import io.restassured.response.ResponseOptions;
+
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class TennisTest {
-    @Test 
-    public void someLibraryReturnsTrue() {
-        Tennis classUnderTest = new Tennis();
-        assertTrue(classUnderTest.someMethod(), "someMethod should return 'true'");
-    }
+
+	@BeforeEach
+	void setUp() throws Exception {
+		RestAssured.baseURI = "http://localhost";
+		RestAssured.port = 8080;
+	}
+
+	@Test
+	public void someLibraryReturnsTrue() {
+		Tennis classUnderTest = new Tennis();
+		assertTrue(classUnderTest.someMethod(), "someMethod should return 'true'");
+	}
+
+	@Test
+	public void paramValidationTest() throws Exception {
+
+		GameRequest request = new GameRequest();
+		request.setPoint1("A");
+		request.setPoint2("a");
+		request.setPoint3("B");
+		request.setPoint4("><>");
+		request.setPoint5("c");
+		request.setPoint6("3er");
+		request.setAdvantagePoint("");
+		request.setGamePoint("");
+
+		Response response = given().contentType("application/json").accept("application/json").body(request).when()
+				.post("/kata-tennis").then().statusCode(200).extract().response();
+		response.getBody().print();
+		GameResponse result = ((ResponseOptions<Response>) response).getBody().as(GameResponse.class);
+		assertEquals("Love", result.getPlayerA_Score());
+		assertEquals("Love", result.getPlayerB_Score());
+		assertEquals("Invalid values for parameters :: , point4, point5, point6", result.getGameResult());
+
+	}
 }

@@ -1,0 +1,43 @@
+Ž07:37:54.007 [Test worker] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager - Get connection for route {}->http://localhost:8080
+{07:37:54.375 [Test worker] DEBUG org.apache.http.impl.conn.DefaultClientConnectionOperator - Connecting to localhost:8080
+y07:37:54.564 [Test worker] DEBUG org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: ignoreCookies
+w07:37:54.570 [Test worker] DEBUG org.apache.http.client.protocol.RequestAuthCache - Auth cache not set in the context
+€07:37:54.570 [Test worker] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication - Target auth state: UNCHALLENGED
+~07:37:54.572 [Test worker] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication - Proxy auth state: UNCHALLENGED
+o07:37:54.573 [Test worker] DEBUG org.apache.http.impl.client.DefaultHttpClient - Attempt 1 to execute request
+‚07:37:54.574 [Test worker] DEBUG org.apache.http.impl.conn.DefaultClientConnection - Sending request: POST /kata-tennis HTTP/1.1
+b07:37:54.613 [Test worker] DEBUG org.apache.http.wire -  >> "POST /kata-tennis HTTP/1.1[\r][\n]"
+`07:37:54.616 [Test worker] DEBUG org.apache.http.wire -  >> "Accept: application/json[\r][\n]"
+u07:37:54.616 [Test worker] DEBUG org.apache.http.wire -  >> "Content-Type: application/json; charset=UTF-8[\r][\n]"
+[07:37:54.616 [Test worker] DEBUG org.apache.http.wire -  >> "Content-Length: 118[\r][\n]"
+\07:37:54.617 [Test worker] DEBUG org.apache.http.wire -  >> "Host: localhost:8080[\r][\n]"
+^07:37:54.617 [Test worker] DEBUG org.apache.http.wire -  >> "Connection: Keep-Alive[\r][\n]"
+}07:37:54.617 [Test worker] DEBUG org.apache.http.wire -  >> "User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_202)[\r][\n]"
+e07:37:54.618 [Test worker] DEBUG org.apache.http.wire -  >> "Accept-Encoding: gzip,deflate[\r][\n]"
+H07:37:54.618 [Test worker] DEBUG org.apache.http.wire -  >> "[\r][\n]"
+Z07:37:54.618 [Test worker] DEBUG org.apache.http.headers - >> POST /kata-tennis HTTP/1.1
+X07:37:54.618 [Test worker] DEBUG org.apache.http.headers - >> Accept: application/json
+m07:37:54.619 [Test worker] DEBUG org.apache.http.headers - >> Content-Type: application/json; charset=UTF-8
+S07:37:54.619 [Test worker] DEBUG org.apache.http.headers - >> Content-Length: 118
+T07:37:54.619 [Test worker] DEBUG org.apache.http.headers - >> Host: localhost:8080
+V07:37:54.619 [Test worker] DEBUG org.apache.http.headers - >> Connection: Keep-Alive
+u07:37:54.620 [Test worker] DEBUG org.apache.http.headers - >> User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_202)
+]07:37:54.620 [Test worker] DEBUG org.apache.http.headers - >> Accept-Encoding: gzip,deflate
+¶07:37:54.624 [Test worker] DEBUG org.apache.http.wire -  >> "{"point1":"A","point2":"a","point3":"B","point4":"><>","point5":"c","point6":"3er","advantagePoint":"","gamePoint":""}"
+U07:38:42.016 [Test worker] DEBUG org.apache.http.wire -  << "HTTP/1.1 200 [\r][\n]"
+f07:38:42.104 [Test worker] DEBUG org.apache.http.wire -  << "Content-Type: application/json[\r][\n]"
+b07:38:42.104 [Test worker] DEBUG org.apache.http.wire -  << "Transfer-Encoding: chunked[\r][\n]"
+k07:38:42.105 [Test worker] DEBUG org.apache.http.wire -  << "Date: Mon, 19 Dec 2022 02:08:41 GMT[\r][\n]"
+^07:38:42.105 [Test worker] DEBUG org.apache.http.wire -  << "Keep-Alive: timeout=60[\r][\n]"
+^07:38:42.106 [Test worker] DEBUG org.apache.http.wire -  << "Connection: keep-alive[\r][\n]"
+H07:38:42.106 [Test worker] DEBUG org.apache.http.wire -  << "[\r][\n]"
+x07:38:42.113 [Test worker] DEBUG org.apache.http.impl.conn.DefaultClientConnection - Receiving response: HTTP/1.1 200 
+M07:38:42.114 [Test worker] DEBUG org.apache.http.headers - << HTTP/1.1 200 
+^07:38:42.115 [Test worker] DEBUG org.apache.http.headers - << Content-Type: application/json
+Z07:38:42.115 [Test worker] DEBUG org.apache.http.headers - << Transfer-Encoding: chunked
+c07:38:42.117 [Test worker] DEBUG org.apache.http.headers - << Date: Mon, 19 Dec 2022 02:08:41 GMT
+V07:38:42.117 [Test worker] DEBUG org.apache.http.headers - << Keep-Alive: timeout=60
+V07:38:42.117 [Test worker] DEBUG org.apache.http.headers - << Connection: keep-alive
+†07:38:42.190 [Test worker] DEBUG org.apache.http.impl.client.DefaultHttpClient - Connection can be kept alive for 60000 MILLISECONDS
+’07:38:42.546 [Test worker] DEBUG io.restassured.internal.RequestSpecificationImpl$RestAssuredHttpBuilder - Parsing response as: application/json
+¸07:38:42.547 [Test worker] DEBUG io.restassured.internal.RequestSpecificationImpl$RestAssuredHttpBuilder - Parsed data to instance of: class org.apache.http.conn.EofSensorInputStream

@@ -1,7 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Kata_Tennis.TennisTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-17T17:50:47" hostname="DESKTOP-AU7EGV9" time="0.171">
+<testsuite name="Kata_Tennis.TennisTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-12-19T02:07:34" hostname="DESKTOP-AU7EGV9" time="69.208">
   <properties/>
-  <testcase name="someLibraryReturnsTrue()" classname="Kata_Tennis.TennisTest" time="0.171"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="paramValidationTest()" classname="Kata_Tennis.TennisTest" time="68.979"/>
+  <testcase name="someLibraryReturnsTrue()" classname="Kata_Tennis.TennisTest" time="0.225"/>
+  <system-out><![CDATA[07:37:54.007 [Test worker] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager - Get connection for route {}->http://localhost:8080
+07:37:54.375 [Test worker] DEBUG org.apache.http.impl.conn.DefaultClientConnectionOperator - Connecting to localhost:8080
+07:37:54.564 [Test worker] DEBUG org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: ignoreCookies
+07:37:54.570 [Test worker] DEBUG org.apache.http.client.protocol.RequestAuthCache - Auth cache not set in the context
+07:37:54.570 [Test worker] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication - Target auth state: UNCHALLENGED
+07:37:54.572 [Test worker] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication - Proxy auth state: UNCHALLENGED
+07:37:54.573 [Test worker] DEBUG org.apache.http.impl.client.DefaultHttpClient - Attempt 1 to execute request
+07:37:54.574 [Test worker] DEBUG org.apache.http.impl.conn.DefaultClientConnection - Sending request: POST /kata-tennis HTTP/1.1
+07:37:54.613 [Test worker] DEBUG org.apache.http.wire -  >> "POST /kata-tennis HTTP/1.1[\r][\n]"
+07:37:54.616 [Test worker] DEBUG org.apache.http.wire -  >> "Accept: application/json[\r][\n]"
+07:37:54.616 [Test worker] DEBUG org.apache.http.wire -  >> "Content-Type: application/json; charset=UTF-8[\r][\n]"
+07:37:54.616 [Test worker] DEBUG org.apache.http.wire -  >> "Content-Length: 118[\r][\n]"
+07:37:54.617 [Test worker] DEBUG org.apache.http.wire -  >> "Host: localhost:8080[\r][\n]"
+07:37:54.617 [Test worker] DEBUG org.apache.http.wire -  >> "Connection: Keep-Alive[\r][\n]"
+07:37:54.617 [Test worker] DEBUG org.apache.http.wire -  >> "User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_202)[\r][\n]"
+07:37:54.618 [Test worker] DEBUG org.apache.http.wire -  >> "Accept-Encoding: gzip,deflate[\r][\n]"
+07:37:54.618 [Test worker] DEBUG org.apache.http.wire -  >> "[\r][\n]"
+07:37:54.618 [Test worker] DEBUG org.apache.http.headers - >> POST /kata-tennis HTTP/1.1
+07:37:54.618 [Test worker] DEBUG org.apache.http.headers - >> Accept: application/json
+07:37:54.619 [Test worker] DEBUG org.apache.http.headers - >> Content-Type: application/json; charset=UTF-8
+07:37:54.619 [Test worker] DEBUG org.apache.http.headers - >> Content-Length: 118
+07:37:54.619 [Test worker] DEBUG org.apache.http.headers - >> Host: localhost:8080
+07:37:54.619 [Test worker] DEBUG org.apache.http.headers - >> Connection: Keep-Alive
+07:37:54.620 [Test worker] DEBUG org.apache.http.headers - >> User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_202)
+07:37:54.620 [Test worker] DEBUG org.apache.http.headers - >> Accept-Encoding: gzip,deflate
+07:37:54.624 [Test worker] DEBUG org.apache.http.wire -  >> "{"point1":"A","point2":"a","point3":"B","point4":"><>","point5":"c","point6":"3er","advantagePoint":"","gamePoint":""}"
+07:38:42.016 [Test worker] DEBUG org.apache.http.wire -  << "HTTP/1.1 200 [\r][\n]"
+07:38:42.104 [Test worker] DEBUG org.apache.http.wire -  << "Content-Type: application/json[\r][\n]"
+07:38:42.104 [Test worker] DEBUG org.apache.http.wire -  << "Transfer-Encoding: chunked[\r][\n]"
+07:38:42.105 [Test worker] DEBUG org.apache.http.wire -  << "Date: Mon, 19 Dec 2022 02:08:41 GMT[\r][\n]"
+07:38:42.105 [Test worker] DEBUG org.apache.http.wire -  << "Keep-Alive: timeout=60[\r][\n]"
+07:38:42.106 [Test worker] DEBUG org.apache.http.wire -  << "Connection: keep-alive[\r][\n]"
+07:38:42.106 [Test worker] DEBUG org.apache.http.wire -  << "[\r][\n]"
+07:38:42.113 [Test worker] DEBUG org.apache.http.impl.conn.DefaultClientConnection - Receiving response: HTTP/1.1 200 
+07:38:42.114 [Test worker] DEBUG org.apache.http.headers - << HTTP/1.1 200 
+07:38:42.115 [Test worker] DEBUG org.apache.http.headers - << Content-Type: application/json
+07:38:42.115 [Test worker] DEBUG org.apache.http.headers - << Transfer-Encoding: chunked
+07:38:42.117 [Test worker] DEBUG org.apache.http.headers - << Date: Mon, 19 Dec 2022 02:08:41 GMT
+07:38:42.117 [Test worker] DEBUG org.apache.http.headers - << Keep-Alive: timeout=60
+07:38:42.117 [Test worker] DEBUG org.apache.http.headers - << Connection: keep-alive
+07:38:42.190 [Test worker] DEBUG org.apache.http.impl.client.DefaultHttpClient - Connection can be kept alive for 60000 MILLISECONDS
+07:38:42.546 [Test worker] DEBUG io.restassured.internal.RequestSpecificationImpl$RestAssuredHttpBuilder - Parsing response as: application/json
+07:38:42.547 [Test worker] DEBUG io.restassured.internal.RequestSpecificationImpl$RestAssuredHttpBuilder - Parsed data to instance of: class org.apache.http.conn.EofSensorInputStream
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

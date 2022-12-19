@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">1</div>
+<div class="counter">2</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.171s</div>
+<div class="counter">1m9.20s</div>
 <p>duration</p>
 </div>
 </td>
@@ -63,6 +63,9 @@
 <li>
 <a href="#tab0">Tests</a>
 </li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Tests</h2>
@@ -75,11 +78,65 @@
 </tr>
 </thead>
 <tr>
+<td class="success">paramValidationTest()</td>
+<td class="success">1m8.98s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">someLibraryReturnsTrue()</td>
-<td class="success">0.171s</td>
+<td class="success">0.225s</td>
 <td class="success">passed</td>
 </tr>
 </table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>07:37:54.007 [Test worker] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager - Get connection for route {}-&gt;http://localhost:8080
+07:37:54.375 [Test worker] DEBUG org.apache.http.impl.conn.DefaultClientConnectionOperator - Connecting to localhost:8080
+07:37:54.564 [Test worker] DEBUG org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: ignoreCookies
+07:37:54.570 [Test worker] DEBUG org.apache.http.client.protocol.RequestAuthCache - Auth cache not set in the context
+07:37:54.570 [Test worker] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication - Target auth state: UNCHALLENGED
+07:37:54.572 [Test worker] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication - Proxy auth state: UNCHALLENGED
+07:37:54.573 [Test worker] DEBUG org.apache.http.impl.client.DefaultHttpClient - Attempt 1 to execute request
+07:37:54.574 [Test worker] DEBUG org.apache.http.impl.conn.DefaultClientConnection - Sending request: POST /kata-tennis HTTP/1.1
+07:37:54.613 [Test worker] DEBUG org.apache.http.wire -  &gt;&gt; &quot;POST /kata-tennis HTTP/1.1[\r][\n]&quot;
+07:37:54.616 [Test worker] DEBUG org.apache.http.wire -  &gt;&gt; &quot;Accept: application/json[\r][\n]&quot;
+07:37:54.616 [Test worker] DEBUG org.apache.http.wire -  &gt;&gt; &quot;Content-Type: application/json; charset=UTF-8[\r][\n]&quot;
+07:37:54.616 [Test worker] DEBUG org.apache.http.wire -  &gt;&gt; &quot;Content-Length: 118[\r][\n]&quot;
+07:37:54.617 [Test worker] DEBUG org.apache.http.wire -  &gt;&gt; &quot;Host: localhost:8080[\r][\n]&quot;
+07:37:54.617 [Test worker] DEBUG org.apache.http.wire -  &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;
+07:37:54.617 [Test worker] DEBUG org.apache.http.wire -  &gt;&gt; &quot;User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_202)[\r][\n]&quot;
+07:37:54.618 [Test worker] DEBUG org.apache.http.wire -  &gt;&gt; &quot;Accept-Encoding: gzip,deflate[\r][\n]&quot;
+07:37:54.618 [Test worker] DEBUG org.apache.http.wire -  &gt;&gt; &quot;[\r][\n]&quot;
+07:37:54.618 [Test worker] DEBUG org.apache.http.headers - &gt;&gt; POST /kata-tennis HTTP/1.1
+07:37:54.618 [Test worker] DEBUG org.apache.http.headers - &gt;&gt; Accept: application/json
+07:37:54.619 [Test worker] DEBUG org.apache.http.headers - &gt;&gt; Content-Type: application/json; charset=UTF-8
+07:37:54.619 [Test worker] DEBUG org.apache.http.headers - &gt;&gt; Content-Length: 118
+07:37:54.619 [Test worker] DEBUG org.apache.http.headers - &gt;&gt; Host: localhost:8080
+07:37:54.619 [Test worker] DEBUG org.apache.http.headers - &gt;&gt; Connection: Keep-Alive
+07:37:54.620 [Test worker] DEBUG org.apache.http.headers - &gt;&gt; User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_202)
+07:37:54.620 [Test worker] DEBUG org.apache.http.headers - &gt;&gt; Accept-Encoding: gzip,deflate
+07:37:54.624 [Test worker] DEBUG org.apache.http.wire -  &gt;&gt; &quot;{&quot;point1&quot;:&quot;A&quot;,&quot;point2&quot;:&quot;a&quot;,&quot;point3&quot;:&quot;B&quot;,&quot;point4&quot;:&quot;&gt;&lt;&gt;&quot;,&quot;point5&quot;:&quot;c&quot;,&quot;point6&quot;:&quot;3er&quot;,&quot;advantagePoint&quot;:&quot;&quot;,&quot;gamePoint&quot;:&quot;&quot;}&quot;
+07:38:42.016 [Test worker] DEBUG org.apache.http.wire -  &lt;&lt; &quot;HTTP/1.1 200 [\r][\n]&quot;
+07:38:42.104 [Test worker] DEBUG org.apache.http.wire -  &lt;&lt; &quot;Content-Type: application/json[\r][\n]&quot;
+07:38:42.104 [Test worker] DEBUG org.apache.http.wire -  &lt;&lt; &quot;Transfer-Encoding: chunked[\r][\n]&quot;
+07:38:42.105 [Test worker] DEBUG org.apache.http.wire -  &lt;&lt; &quot;Date: Mon, 19 Dec 2022 02:08:41 GMT[\r][\n]&quot;
+07:38:42.105 [Test worker] DEBUG org.apache.http.wire -  &lt;&lt; &quot;Keep-Alive: timeout=60[\r][\n]&quot;
+07:38:42.106 [Test worker] DEBUG org.apache.http.wire -  &lt;&lt; &quot;Connection: keep-alive[\r][\n]&quot;
+07:38:42.106 [Test worker] DEBUG org.apache.http.wire -  &lt;&lt; &quot;[\r][\n]&quot;
+07:38:42.113 [Test worker] DEBUG org.apache.http.impl.conn.DefaultClientConnection - Receiving response: HTTP/1.1 200 
+07:38:42.114 [Test worker] DEBUG org.apache.http.headers - &lt;&lt; HTTP/1.1 200 
+07:38:42.115 [Test worker] DEBUG org.apache.http.headers - &lt;&lt; Content-Type: application/json
+07:38:42.115 [Test worker] DEBUG org.apache.http.headers - &lt;&lt; Transfer-Encoding: chunked
+07:38:42.117 [Test worker] DEBUG org.apache.http.headers - &lt;&lt; Date: Mon, 19 Dec 2022 02:08:41 GMT
+07:38:42.117 [Test worker] DEBUG org.apache.http.headers - &lt;&lt; Keep-Alive: timeout=60
+07:38:42.117 [Test worker] DEBUG org.apache.http.headers - &lt;&lt; Connection: keep-alive
+07:38:42.190 [Test worker] DEBUG org.apache.http.impl.client.DefaultHttpClient - Connection can be kept alive for 60000 MILLISECONDS
+07:38:42.546 [Test worker] DEBUG io.restassured.internal.RequestSpecificationImpl$RestAssuredHttpBuilder - Parsing response as: application/json
+07:38:42.547 [Test worker] DEBUG io.restassured.internal.RequestSpecificationImpl$RestAssuredHttpBuilder - Parsed data to instance of: class org.apache.http.conn.EofSensorInputStream
+</pre>
+</span>
 </div>
 </div>
 <div id="footer">
@@ -89,7 +146,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.3.3</a> at Dec 17, 2022, 11:20:48 PM</p>
+<a href="http://www.gradle.org">Gradle 7.3.3</a> at Dec 19, 2022 7:38:46 AM</p>
 </div>
 </div>
 </body>
