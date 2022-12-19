@@ -67,12 +67,15 @@ public class GameService {
 		for (Field field : gameRequestFields) {
 			String value = field.get(gameRequest).toString();
 			if (!isBlankOrNull(value)) {
-				if (playerA_score <= 4 && playerB_score <= 4) {
-					if (value.equalsIgnoreCase(playerA))
-						playerA_score++;
-					else if (value.equalsIgnoreCase(playerB))
-						playerB_score++;
+				if (value.equalsIgnoreCase(playerA))
+					playerA_score++;
+				else if (value.equalsIgnoreCase(playerB))
+					playerB_score++;
+
+				if (playerA_score == 4 || playerB_score == 4) {
+					break;
 				}
+
 			}
 		}
 
