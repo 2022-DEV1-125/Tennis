@@ -23,6 +23,7 @@ class TennisTest {
 		RestAssured.port = 9080;
 	}
 
+	/* Test to validate parameter values */
 	@Test
 	public void paramValidationTest() throws Exception {
 
@@ -47,6 +48,7 @@ class TennisTest {
 
 	}
 
+	/* Test to declare winner as player A */
 	@Test
 	public void playerAWinTest() throws Exception {
 
@@ -93,6 +95,7 @@ class TennisTest {
 
 	}
 
+	/* Test to declare winner as player B */
 	@Test
 	public void deuceTest() throws Exception {
 
@@ -116,6 +119,7 @@ class TennisTest {
 
 	}
 
+	/* Test to check deuce and validate mandatory param after deuce */
 	@Test
 	public void advantagePointTest() throws Exception {
 
@@ -139,6 +143,7 @@ class TennisTest {
 
 	}
 
+	/* Test to check deuce and validate mandatory param after deuce */
 	@Test
 	public void finalPointTest() throws Exception {
 
@@ -162,6 +167,7 @@ class TennisTest {
 
 	}
 
+	/* Test to declare A as winner after deuce */
 	@Test
 	public void playerA_afterDeuce() throws Exception {
 
@@ -185,6 +191,7 @@ class TennisTest {
 
 	}
 
+	/* Test to declare A as winner after deuce */
 	@Test
 	public void playerB_afterDeuce() throws Exception {
 
@@ -208,6 +215,7 @@ class TennisTest {
 
 	}
 
+	/* Test to validate second deuce */
 	@Test
 	public void deuceAgain() throws Exception {
 
@@ -231,6 +239,8 @@ class TennisTest {
 
 	}
 
+	/* Test to ignore missing param and declare winner using given scores */
+	
 	@Test
 	public void withoutParamTest_B() throws Exception {
 
@@ -250,6 +260,7 @@ class TennisTest {
 
 	}
 
+	/* Test to ignore param after winner declaration */
 	@Test
 	public void optionalParam_AfterWin() throws Exception {
 
@@ -274,6 +285,7 @@ class TennisTest {
 
 	}
 
+	/* Test to validate missing parameters after deuce */
 	@Test
 	public void withoutParamTest_deuce() throws Exception {
 
@@ -294,7 +306,8 @@ class TennisTest {
 		assertEquals("Deuce! Kindly enter advantage and final point", result.getGameResult());
 
 	}
-	
+
+	/* Test to validate if adequate parameters are present or not*/
 	@Test
 	public void missingMandatoryParamTest() throws Exception {
 
@@ -313,7 +326,8 @@ class TennisTest {
 		assertEquals("Please enter furthur points to calculate the winner", result.getGameResult());
 
 	}
-	
+
+	/* Test to validate if request body is empty*/
 	@Test
 	public void emptyBodyTest() throws Exception {
 

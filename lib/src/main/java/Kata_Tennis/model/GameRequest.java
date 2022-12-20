@@ -1,9 +1,5 @@
 package Kata_Tennis.model;
 
-import java.lang.reflect.Field;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-
 public class GameRequest {
 
 	public String point1;

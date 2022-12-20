@@ -19,6 +19,14 @@ public class GameService {
 		validValues.add(playerB);
 	}
 
+	/*
+	 * This method is used to validate request params and throws error if any
+	 * invalid values found
+	 * 
+	 * @param GameRequest
+	 * 
+	 * @return GameResponse
+	 */
 	public GameResponse validateParametersValue(GameRequest gameRequest) {
 		System.out.println("validateParametersValue() -> Entry ");
 		String message = "";
@@ -32,9 +40,7 @@ public class GameService {
 				val = field.get(gameRequest);
 				if (val == null) {
 					field.set(gameRequest, "");
-				}
-
-				if (val != null && !isBlankOrNull(val.toString())) {
+				} else if (val != null && !isBlankOrNull(val.toString())) {
 					System.out.println("Validating " + field.getName() + " :: " + val.toString());
 					if (!validValues.contains(val.toString().toUpperCase())) {
 						message = message + " " + field.getName();
@@ -57,13 +63,20 @@ public class GameService {
 		return response;
 	}
 
+	/*
+	 * This method is used to calculate score with given valid values
+	 * 
+	 * 
+	 * @param GameRequest
+	 * 
+	 * @return GameResponse
+	 */
 	public GameResponse calculateScore(GameRequest gameRequest) {
 		System.out.println("calculateScore() -> Entry ");
 
 		int playerA_score = 0;
 		int playerB_score = 0;
 		String message = "";
-		Object val = null;
 		GameResponse result = new GameResponse();
 
 		try {
@@ -100,28 +113,14 @@ public class GameService {
 
 	}
 
-	private boolean isBlankOrNull(String s) {
-		return (s == null || s.trim().equals(""));
-	}
-
-	private String getScore(int point) {
-
-		switch (point) {
-		case 0:
-			return "Love";
-		case 1:
-			return "15";
-		case 2:
-			return "30";
-		case 3:
-		case 4:
-			return "40";
-		default:
-			return "Love";
-		}
-
-	}
-
+	/*
+	 * This method is used to return message according to calculates score
+	 * found
+	 * 
+	 * @param palyeA_score, playerB_score, gameRequest
+	 * 
+	 * @return result message
+	 */
 	private String getMessage(int playerA_score, int playerB_score, GameRequest gameRequest) {
 		System.out.println(
 				"getMessage() -> Entry " + "playerA_score :: " + playerA_score + " playerB_score :: " + playerB_score);
@@ -144,6 +143,14 @@ public class GameService {
 
 	}
 
+	/*
+	 * This method is used to check deuce and return message accordingly
+	 * found
+	 * 
+	 * @param GameRequest
+	 * 
+	 * @return message
+	 */
 	private String checkDeuce(GameRequest gameRequest) {
 		System.out.println("getMessage() -> Entry ");
 		String message = "Deuce!";
@@ -166,6 +173,28 @@ public class GameService {
 
 		System.out.println("getMessage() -> Exit ");
 		return message;
+	}
+
+	private boolean isBlankOrNull(String s) {
+		return (s == null || s.trim().equals(""));
+	}
+
+	private String getScore(int point) {
+
+		switch (point) {
+		case 0:
+			return "Love";
+		case 1:
+			return "15";
+		case 2:
+			return "30";
+		case 3:
+		case 4:
+			return "40";
+		default:
+			return "Love";
+		}
+
 	}
 
 }
