@@ -19,8 +19,5 @@ public class Tennis extends SpringBootServletInitializer {
         app.run(args);
 		System.out.println(".........Application Started...........");
 	}
-	
-    public boolean someMethod() {
-        return true;
-    }
+
 }

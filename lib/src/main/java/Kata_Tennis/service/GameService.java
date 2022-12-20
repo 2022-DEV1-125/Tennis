@@ -23,16 +23,20 @@ public class GameService {
 		System.out.println("validateParametersValue() -> Entry ");
 		String message = "";
 		GameResponse response = new GameResponse();
+		Object val = null;
 
 		try {
 
 			Field[] gameRequestFields = gameRequest.getClass().getDeclaredFields();
 			for (Field field : gameRequestFields) {
+				val = field.get(gameRequest);
+				if (val == null) {
+					field.set(gameRequest, "");
+				}
 
-				String value = field.get(gameRequest).toString();
-				if (!isBlankOrNull(value)) {
-					System.out.println("Validating " + field.getName() + " :: " + value);
-					if (!validValues.contains(value.toUpperCase())) {
+				if (val != null && !isBlankOrNull(val.toString())) {
+					System.out.println("Validating " + field.getName() + " :: " + val.toString());
+					if (!validValues.contains(val.toString().toUpperCase())) {
 						message = message + " " + field.getName();
 					}
 				}
@@ -59,6 +63,7 @@ public class GameService {
 		int playerA_score = 0;
 		int playerB_score = 0;
 		String message = "";
+		Object val = null;
 		GameResponse result = new GameResponse();
 
 		try {
@@ -129,6 +134,9 @@ public class GameService {
 			message = "Player B won the game";
 		else if (playerA_score == 3 && playerB_score == 3) {
 			message = checkDeuce(gameRequest);
+		} else if ((playerA_score != 4 && playerB_score != 4)) {
+			if (!(playerA_score == 3 && playerB_score == 3))
+				message = "Please enter furthur points to calculate the winner";
 		}
 
 		System.out.println("getMessage() -> Exit ");

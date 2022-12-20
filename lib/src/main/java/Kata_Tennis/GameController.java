@@ -37,7 +37,7 @@ public class GameController {
 		} catch (Exception ex) {
 			System.err.println(ex.getMessage());
 		}
-
+		System.out.println("------Exit Controller------");
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 

@@ -1,8 +1,9 @@
 package Kata_Tennis.model;
 
+import java.lang.reflect.Field;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 
-@Schema(name = "GameRequest", description = "Parameters to get score of the players")
 public class GameRequest {
 
 	public String point1;

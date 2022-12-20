@@ -117,29 +117,6 @@ class TennisTest {
 	}
 
 	@Test
-	public void adAndFinalPointTest() throws Exception {
-
-		GameRequest request = new GameRequest();
-		request.setPoint1("b");
-		request.setPoint2("B");
-		request.setPoint3("b");
-		request.setPoint4("a");
-		request.setPoint5("a");
-		request.setPoint6("A");
-		request.setAdvantagePoint("");
-		request.setFinalPoint("");
-
-		Response response = given().contentType("application/json").accept("application/json").body(request).when()
-				.post("/kata-tennis").then().statusCode(200).extract().response();
-		response.getBody().print();
-		GameResponse result = ((ResponseOptions<Response>) response).getBody().as(GameResponse.class);
-		assertEquals("40", result.getPlayerA_Score());
-		assertEquals("40", result.getPlayerB_Score());
-		assertEquals("Deuce! Kindly enter advantage and final point", result.getGameResult());
-
-	}
-
-	@Test
 	public void advantagePointTest() throws Exception {
 
 		GameRequest request = new GameRequest();
@@ -253,4 +230,103 @@ class TennisTest {
 		assertEquals("Deuce Again!", result.getGameResult());
 
 	}
+
+	@Test
+	public void withoutParamTest_B() throws Exception {
+
+		GameRequest request = new GameRequest();
+		request.setPoint1("b");
+		request.setPoint2("B");
+		request.setPoint3("b");
+		request.setPoint4("B");
+
+		Response response = given().contentType("application/json").accept("application/json").body(request).when()
+				.post("/kata-tennis").then().statusCode(200).extract().response();
+		response.getBody().print();
+		GameResponse result = ((ResponseOptions<Response>) response).getBody().as(GameResponse.class);
+		assertEquals("Love", result.getPlayerA_Score());
+		assertEquals("40", result.getPlayerB_Score());
+		assertEquals("Player B won the game", result.getGameResult());
+
+	}
+
+	@Test
+	public void optionalParam_AfterWin() throws Exception {
+
+		GameRequest request = new GameRequest();
+		request.setPoint1("A");
+		request.setPoint2("B");
+		request.setPoint3("a");
+		request.setPoint4("a");
+		request.setPoint5("a");
+		request.setPoint6("B");
+		request.setAdvantagePoint("B");
+		request.setFinalPoint("b");
+
+		Response response = given().contentType("application/json").accept("application/json").body(request).when()
+				.post("/kata-tennis").then().statusCode(200).extract().response();
+		response.getBody().print();
+		GameResponse result = ((ResponseOptions<Response>) response).getBody().as(GameResponse.class);
+		assertEquals("40", result.getPlayerA_Score());
+		assertEquals("15", result.getPlayerB_Score()); // Since player A already won at point5 rest of the following
+														// points are ignored
+		assertEquals("Player A won the game", result.getGameResult());
+
+	}
+
+	@Test
+	public void withoutParamTest_deuce() throws Exception {
+
+		GameRequest request = new GameRequest();
+		request.setPoint1("b");
+		request.setPoint2("B");
+		request.setPoint3("b");
+		request.setPoint4("a");
+		request.setPoint5("a");
+		request.setPoint6("A");
+
+		Response response = given().contentType("application/json").accept("application/json").body(request).when()
+				.post("/kata-tennis").then().statusCode(200).extract().response();
+		response.getBody().print();
+		GameResponse result = ((ResponseOptions<Response>) response).getBody().as(GameResponse.class);
+		assertEquals("40", result.getPlayerA_Score());
+		assertEquals("40", result.getPlayerB_Score());
+		assertEquals("Deuce! Kindly enter advantage and final point", result.getGameResult());
+
+	}
+	
+	@Test
+	public void missingMandatoryParamTest() throws Exception {
+
+		GameRequest request = new GameRequest();
+		request.setPoint1("b");
+		request.setPoint2("B");
+		request.setPoint3("b");
+		request.setPoint4("a");
+
+		Response response = given().contentType("application/json").accept("application/json").body(request).when()
+				.post("/kata-tennis").then().statusCode(200).extract().response();
+		response.getBody().print();
+		GameResponse result = ((ResponseOptions<Response>) response).getBody().as(GameResponse.class);
+		assertEquals("15", result.getPlayerA_Score());
+		assertEquals("40", result.getPlayerB_Score());
+		assertEquals("Please enter furthur points to calculate the winner", result.getGameResult());
+
+	}
+	
+	@Test
+	public void emptyBodyTest() throws Exception {
+
+		GameRequest request = new GameRequest();
+
+		Response response = given().contentType("application/json").accept("application/json").body(request).when()
+				.post("/kata-tennis").then().statusCode(200).extract().response();
+		response.getBody().print();
+		GameResponse result = ((ResponseOptions<Response>) response).getBody().as(GameResponse.class);
+		assertEquals("Love", result.getPlayerA_Score());
+		assertEquals("Love", result.getPlayerB_Score());
+		assertEquals("Please enter furthur points to calculate the winner", result.getGameResult());
+
+	}
+
 }
