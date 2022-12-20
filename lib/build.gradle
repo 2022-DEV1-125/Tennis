@@ -27,12 +27,8 @@ bootWar{
 dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
-	// https://mvnrepository.com/artifact/io.rest-assured/rest-assured
 	testImplementation group: 'io.rest-assured', name: 'rest-assured', version:'4.1.1'
 	testImplementation group: 'io.rest-assured', name: 'json-schema-validator', version:'4.1.1'
-	//testImplementation 'io.rest-assured:json-schema-validator:4.3.3'
-
-
     
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.
