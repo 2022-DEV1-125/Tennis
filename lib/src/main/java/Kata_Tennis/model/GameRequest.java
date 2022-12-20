@@ -28,7 +28,6 @@ public class GameRequest {
 
 	public void setPoint2(String point2) {
 		this.point2 = point2 != null ? point2 : "";
-		;
 	}
 
 	public String getPoint3() {
@@ -37,7 +36,6 @@ public class GameRequest {
 
 	public void setPoint3(String point3) {
 		this.point3 = point3 != null ? point3 : "";
-		;
 	}
 
 	public String getPoint4() {
@@ -46,7 +44,6 @@ public class GameRequest {
 
 	public void setPoint4(String point4) {
 		this.point4 = point4 != null ? point4 : "";
-		;
 	}
 
 	public String getPoint5() {
